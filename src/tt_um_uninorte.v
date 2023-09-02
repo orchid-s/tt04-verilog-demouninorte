@@ -38,8 +38,8 @@ module tt_um_uninorte #( parameter MAX_COUNT = 24'd10_000_000 ) (
     assign feature_60 = uio_in[6];
     assign feature_61 = uio_in[7];
     
-    assign uo_out[6:0] = display7segmentos;
-    assign uo_out[7] = 1'b0;
+    assign uio_out[6:0] = display7segmentos;
+    assign uio_out[7] = 1'b0;
 
     always @(posedge clk) begin
         if (!feature_21) begin
