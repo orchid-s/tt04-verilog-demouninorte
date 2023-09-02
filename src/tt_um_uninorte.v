@@ -19,7 +19,7 @@ module tt_um_uninorte #( parameter MAX_COUNT = 24'd10_000_000 ) (
     // use bidirectionals as outputs
     assign uio_oe = 8'b00000000;
 
-    wire feature_10 = ui_in[0];
+    /*wire feature_10 = ui_in[0];
     wire feature_13 = ui_in[1];
     wire feature_18 = ui_in[2];
     wire feature_19 = ui_in[3];
@@ -34,7 +34,7 @@ module tt_um_uninorte #( parameter MAX_COUNT = 24'd10_000_000 ) (
     wire feature_43 = uio_in[4];
     wire feature_45 = uio_in[5];
     wire feature_60 = uio_in[6];
-    wire feature_61 = uio_in[7];
+    wire feature_61 = uio_in[7];*/
 
     /*always @(posedge clk) begin
         if (!feature_21) begin
