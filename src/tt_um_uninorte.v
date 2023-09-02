@@ -30,7 +30,6 @@ module tt_um_uninorte #( parameter MAX_COUNT = 24'd10_000_000 ) (
     // otherwise use the hard coded MAX_COUNT
     //wire [23:0] compare = ui_in == 0 ? MAX_COUNT: {6'b0, ui_in[7:0], 10'b0};
     
-    wire feature_10=ui_in[0];
     wire feature_10 = ui_in[0];
     wire feature_13 = ui_in[1];
     wire feature_18 = ui_in[2];
