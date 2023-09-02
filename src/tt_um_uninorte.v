@@ -19,6 +19,23 @@ module tt_um_uninorte #( parameter MAX_COUNT = 24'd10_000_000 ) (
     // use bidirectionals as outputs
     assign uio_oe = 8'b00000000;
 
+    reg feature_10 = ui_in[0];
+    reg feature_13 = ui_in[1];
+    reg feature_18 = ui_in[2];
+    reg feature_19 = ui_in[3];
+    reg feature_20 = ui_in[4];
+    reg feature_21 = ui_in[5];
+    reg feature_26 = ui_in[6];
+    reg feature_27 = ui_in[7];
+    reg feature_28 = uio_in[0];
+    reg feature_34 = uio_in[1];
+    reg feature_36 = uio_in[2];
+    reg feature_42 = uio_in[3];
+    reg feature_43 = uio_in[4];
+    reg feature_45 = uio_in[5];
+    reg feature_60 = uio_in[6];
+    reg feature_61 = uio_in[7];
+
     /*wire feature_10 = ui_in[0];
     wire feature_13 = ui_in[1];
     wire feature_18 = ui_in[2];
