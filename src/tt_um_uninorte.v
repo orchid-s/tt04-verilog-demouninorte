@@ -12,48 +12,36 @@ module tt_um_uninorte #( parameter MAX_COUNT = 24'd10_000_000 ) (
 );
 
     wire reset = ! rst_n;
-    wire [6:0] display7segmentos;
-    assign uo_out[6:0] = display7segmentos;
-    assign uo_out[7] = 1'b0;
+    reg [6:0] display7segmentos;
+
+    wire feature_10, feature_13,feature_18, feature_19, feature_20;
+    wire feature_21, feature_26, feature_27,feature_28, feature_34, feature_36;
+    wire feature_42, feature_43, feature_45, feature_60, feature_61;
 
     // use bidirectionals as outputs
     assign uio_oe = 8'b00000000;
+    
+    assign feature_10 = ui_in[0];
+    assign feature_13 = ui_in[1];
+    assign feature_18 = ui_in[2];
+    assign feature_19 = ui_in[3];
+    assign feature_20 = ui_in[4];
+    assign feature_21 = ui_in[5];
+    assign feature_26 = ui_in[6];
+    assign feature_27 = ui_in[7];
+    assign feature_28 = uio_in[0];
+    assign feature_34 = uio_in[1];
+    assign feature_36 = uio_in[2];
+    assign feature_42 = uio_in[3];
+    assign feature_43 = uio_in[4];
+    assign feature_45 = uio_in[5];
+    assign feature_60 = uio_in[6];
+    assign feature_61 = uio_in[7];
+    
+    assign uo_out[6:0] = display7segmentos;
+    assign uo_out[7] = 1'b0;
 
-    reg feature_10 = ui_in[0];
-    reg feature_13 = ui_in[1];
-    reg feature_18 = ui_in[2];
-    reg feature_19 = ui_in[3];
-    reg feature_20 = ui_in[4];
-    reg feature_21 = ui_in[5];
-    reg feature_26 = ui_in[6];
-    reg feature_27 = ui_in[7];
-    reg feature_28 = uio_in[0];
-    reg feature_34 = uio_in[1];
-    reg feature_36 = uio_in[2];
-    reg feature_42 = uio_in[3];
-    reg feature_43 = uio_in[4];
-    reg feature_45 = uio_in[5];
-    reg feature_60 = uio_in[6];
-    reg feature_61 = uio_in[7];
-
-    /*wire feature_10 = ui_in[0];
-    wire feature_13 = ui_in[1];
-    wire feature_18 = ui_in[2];
-    wire feature_19 = ui_in[3];
-    wire feature_20 = ui_in[4];
-    wire feature_21 = ui_in[5];
-    wire feature_26 = ui_in[6];
-    wire feature_27 = ui_in[7];
-    wire feature_28 = uio_in[0];
-    wire feature_34 = uio_in[1];
-    wire feature_36 = uio_in[2];
-    wire feature_42 = uio_in[3];
-    wire feature_43 = uio_in[4];
-    wire feature_45 = uio_in[5];
-    wire feature_60 = uio_in[6];
-    wire feature_61 = uio_in[7];*/
-
-    /*always @(posedge clk) begin
+    always @(posedge clk) begin
         if (!feature_21) begin
         if (!feature_34) begin
             if (!feature_36) begin
@@ -1378,6 +1366,7 @@ module tt_um_uninorte #( parameter MAX_COUNT = 24'd10_000_000 ) (
                 end
             end
         end
-    end*/
+    end
+    end
 
 endmodule
