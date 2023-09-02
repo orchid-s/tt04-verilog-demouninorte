@@ -19,17 +19,6 @@ module tt_um_uninorte #( parameter MAX_COUNT = 24'd10_000_000 ) (
     // use bidirectionals as outputs
     assign uio_oe = 8'b00000000;
 
-    //put bottom 8 bits of second counter out on the bidirectional gpio
-    //assign uio_out = second_counter[7:0];
-
-    //external clock is 10MHz, so need 24 bit counter
-    //reg [23:0] second_counter;
-    //reg [3:0] digit;
-
-    // if external inputs are set then use that as compare count
-    // otherwise use the hard coded MAX_COUNT
-    //wire [23:0] compare = ui_in == 0 ? MAX_COUNT: {6'b0, ui_in[7:0], 10'b0};
-    
     wire feature_10 = ui_in[0];
     wire feature_13 = ui_in[1];
     wire feature_18 = ui_in[2];
@@ -48,6 +37,13 @@ module tt_um_uninorte #( parameter MAX_COUNT = 24'd10_000_000 ) (
     wire feature_61 = uio_in[7];
 
     always @(posedge clk) begin
+        if (!feature_21) begin
+            display7segmentos = 7'b0100100;
+        end else begin  // if feature_42
+        display7segmentos = 7'b1001100;
+        end
+
+    /*always @(posedge clk) begin
         if (!feature_21) begin
         if (!feature_34) begin
             if (!feature_36) begin
@@ -1372,31 +1368,6 @@ module tt_um_uninorte #( parameter MAX_COUNT = 24'd10_000_000 ) (
                 end
             end
         end
-
-        // if reset, set counter to 0
-        /*if (reset) begin
-            //second_counter <= 0;
-            //digit <= 0;
-        end else begin
-            // if up to 16e6
-            if (second_counter == compare) begin
-                // reset
-                second_counter <= 0;
-
-                // increment digit
-                digit <= digit + 1'b1;
-
-                // only count from 0 to 9
-                if (digit == 9)
-                    digit <= 0;
-
-            end else
-                // increment counter
-                second_counter <= second_counter + 1'b1;
-        end*/
-    end
-
-    // instantiate segment display
-    //seg7 seg7(.counter(digit), .segments(led_out));
+    end*/
 
 endmodule
