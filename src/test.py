@@ -28,8 +28,8 @@ async def test_7seg(dut):
         await ClockCycles(dut.clk, max_count)
         assert int(dut.segments.value) == segments[i % 10]
 
-        # all bidirectionals are set to output
-        assert dut.uio_oe == 0xFF
+        # all bidirectionals are set to input
+        assert dut.uio_oe == 0x00
 
     # reset
     dut.rst_n.value = 0
