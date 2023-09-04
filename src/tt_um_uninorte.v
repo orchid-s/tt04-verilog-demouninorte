@@ -20,6 +20,7 @@ module tt_um_uninorte #( parameter MAX_COUNT = 24'd10_000_000 ) (
 
     // use bidirectionals as outputs
     assign uio_oe = 8'b00000000;
+    assign uio_out = 8'b00000000;
     
     assign feature_10 = ui_in[0];
     assign feature_13 = ui_in[1];
