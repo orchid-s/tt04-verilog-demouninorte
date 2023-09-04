@@ -3,7 +3,7 @@ from cocotb.clock import Clock
 from cocotb.triggers import RisingEdge, FallingEdge, Timer, ClockCycles
 
 
-segments = [ 63, 6, 91, 79, 102, 109, 124, 7, 127, 103 ]
+segments = [ 7'b0100100, 7'b1001100, 7'b0001111, 7'b0100000, 7'b1001100, 7'b1001100, 7'b0100000, 7'b1001100 ]
 
 @cocotb.test()
 async def test_7seg(dut):
@@ -20,7 +20,7 @@ async def test_7seg(dut):
     dut.rst_n.value = 1
 
     # the compare value is shifted 10 bits inside the design to allow slower counting
-    max_count = dut.ui_in.value << 10
+    max_count = 0x7F
     dut._log.info(f"check all segments with MAX_COUNT set to {max_count}")
     # check all segments and roll over
     for i in range(15):
